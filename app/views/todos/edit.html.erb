@@ -1,0 +1,37 @@
+<h1>Edit Todo</h1>
+
+<div>
+    <%= form_with(model: @todo, local: true) do |form| %>
+
+        <% if @todo.errors.any? %>
+            <div id="error_explanation">
+                <h2>
+                <%= pluralize(@todo.errors.count, "error") %>
+                to create TODO:
+                </h2>
+
+                <ul>
+                    <% @todo.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
+        <div class="form-group">
+            <fieldset>
+                <%= form.label :description, class: "control-label" %>
+                <%= form.text_field :description, class: "form-control", placeholder: "Add a todo's name" %>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            <fieldset>
+                <%= form.submit 'U P D A T E', class: "btn btn-success btn-block" %>
+            </fieldset>
+        </div>
+
+    <% end %>
+</div>
+
+<%= link_to 'B A C K', todos_path, class: "btn btn-info btn-block"%>

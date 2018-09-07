@@ -1,0 +1,22 @@
+<%= link_to 'C R E A T E', new_todo_path, class: "btn btn-primary btn-block"%>
+<br>
+<div class="row">
+    <% @todos.each do |todo| %>
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-primary"><%= todo.description %></h5>
+                    <p class="card-text"><span class="text-success"><%= 'C O M P L E T E D' if todo.completed != nil %></span></p>
+                        <div class="btn-group" role="group">
+                            <%= link_to 'S H O W ', todo_path(todo), class: "btn btn-primary"%>
+                            <%= link_to 'E D I T', edit_todo_path(todo), class: "btn btn-warning"%>
+                            <%= link_to 'D E L E T E', todo_path(todo), class: "btn btn-danger", :method=>:delete%>
+                            <% if todo.completed != true %>
+                                <%= link_to 'D O', todo_complete_path(todo), class: "btn btn-info"%>
+                            <% end %>
+                        </div>            
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>

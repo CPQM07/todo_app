@@ -1,0 +1,9 @@
+<div class="card mb-3" style="max-width: 100rem;">
+  <div class="card-header bg-info text-white">TODO'S DETAILS</div>
+  <div class="card-body">
+    <h4 class="card-title"><%= @todo.description %></h4>
+    <p class="card-text">Status: <%= @todo.completed %></p>
+  </div>
+</div>
+
+<%= link_to 'B A C K', todos_path, class: "btn btn-info btn-block"%>
